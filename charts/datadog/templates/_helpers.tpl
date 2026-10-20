@@ -736,7 +736,8 @@ Return a remote otel-agent based on `.Values` (passed as .)
       dropped since the ddot-collector image has no `-jmx` variant.
       */}}
       {{- $ddotTag := .Values.agents.image.tag | toString | trimSuffix "-jmx" -}}
-      {{- $ddotImage := dict "name" "ddot-collector" "tag" $ddotTag -}}
+      {{- $collectorImage := .Values.datadog.otelCollector.image | default dict -}}
+      {{- $ddotImage := dict "name" "ddot-collector" "tag" $ddotTag "digest" $collectorImage.digest -}}
       {{- if and (eq (include "use-fips-images" .Values) "true") (not .Values.agents.image.doNotCheckTag) (semverCompare "<7.78.0" (include "get-agent-version" .)) -}}
         {{- fail "The standalone FIPS ddot-collector image is not available before 7.78.0. Upgrade agents.image.tag to 7.78.0+, set useFIPSAgent to false, or set agents.image.doNotCheckTag to true." -}}
       {{- else -}}

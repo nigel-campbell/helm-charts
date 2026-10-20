@@ -1,6 +1,6 @@
 # Datadog
 
-![Version: 3.257.1](https://img.shields.io/badge/Version-3.257.1-informational?style=flat-square) ![AppVersion: 7](https://img.shields.io/badge/AppVersion-7-informational?style=flat-square)
+![Version: 3.258.0](https://img.shields.io/badge/Version-3.258.0-informational?style=flat-square) ![AppVersion: 7](https://img.shields.io/badge/AppVersion-7-informational?style=flat-square)
 
 > [!WARNING]
 > The Datadog Operator is now enabled by default since version [3.157.0](https://github.com/DataDog/helm-charts/blob/main/charts/datadog/CHANGELOG.md#31570) to collect chart metadata for display in [Fleet Automation](https://docs.datadoghq.com/agent/fleet_automation/). We are aware of issues affecting some environments and are actively working on fixes. We apologize for the inconvenience and appreciate your patience while we address these issues.
@@ -949,6 +949,7 @@ helm install <RELEASE_NAME> \
 | datadog.otelCollector.configMap.name | string | `nil` | Name of the existing ConfigMap that contains the DDOT Collector configuration |
 | datadog.otelCollector.enabled | bool | `false` | Enable the OTel Collector |
 | datadog.otelCollector.featureGates | string | `nil` | Feature gates to pass to OTel collector, as a comma separated list |
+| datadog.otelCollector.image.digest | string | `""` | Digest of the standalone ddot-collector image (for example, sha256:...). Overrides its tag without changing the Agent image. Ignored when using the Agent image instead of the standalone image. Keep agents.image.tag set to the matching version for configuration and compatibility checks. When using FIPS images, supply the digest of the FIPS ddot-collector image. |
 | datadog.otelCollector.logs.enabled | bool | `false` | Enable logs support in the OTel Collector. If true, checks OTel Collector config for filelog receiver and mounts additional volumes to collect containers and pods logs. |
 | datadog.otelCollector.ports | list | `[{"containerPort":"4317","name":"otel-grpc","protocol":"TCP"},{"containerPort":"4318","name":"otel-http","protocol":"TCP"}]` | Ports that OTel Collector is listening on |
 | datadog.otelCollector.rbac.create | bool | `true` | If true, check OTel Collector config for k8sattributes processor and create required ClusterRole to access Kubernetes API |

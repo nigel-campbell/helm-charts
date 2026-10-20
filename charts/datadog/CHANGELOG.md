@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 3.258.0
+
+* Add `datadog.otelCollector.image.digest` to pin the standalone DDoT collector image independently of the Agent image.
+
 ## 3.257.1
 
 * Bump default Agent, Cluster Agent, and Cluster Checks Runner to 7.84.3 ([#2978](https://github.com/DataDog/helm-charts/pull/2978)).

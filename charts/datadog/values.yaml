@@ -925,6 +925,11 @@ datadog:
     # This is only supported for agent versions 7.67.0+
     # If set to false, you will need to set `agents.image.tagSuffix` to `full`
     useStandaloneImage: true
+    image:
+      # datadog.otelCollector.image.digest -- Digest of the standalone ddot-collector image (for example, sha256:...). Overrides its tag without changing the Agent image. Ignored when using the Agent image instead of the standalone image.
+      # Keep agents.image.tag set to the matching version for configuration and compatibility checks.
+      # When using FIPS images, supply the digest of the FIPS ddot-collector image.
+      digest: ""
 
     ## Provide OTel Collector RBAC configuration
     rbac:
