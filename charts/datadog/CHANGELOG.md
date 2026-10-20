@@ -1,5 +1,9 @@
 # Datadog changelog
 
+## 3.257.2
+
+* Update `fips.image.tag` to `1.1.32` fixing CVEs and updating packages.
+
 ## 3.257.1
 
 * Bump default Agent, Cluster Agent, and Cluster Checks Runner to 7.84.3 ([#2978](https://github.com/DataDog/helm-charts/pull/2978)).
